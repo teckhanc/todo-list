@@ -5,15 +5,19 @@
     <title>Todo List</title>
   </head>
   <body>
-    <h1> <%=todoName%> - <%=day%></h1>
+    <h1> <%= todoName %> </h1>
+    <h1><form class="" action="/list" method="post">
+      <input type="text" name="todoName" value="" placeholder="Title">
+      <button type="Submit" name="create" value="list">Create</button>
+    </form></h1>
     <ul>
       <% for (var i = 0; i < items.length; i++) { %>
         <li> <%=items[i]%> </li>
       <% } %>
     </ul>
     <form class="" action="/list" method="post">
-      <input type="text" name="newTodo" value="" placeholder="Todo">
-      <button type="Submit" name="button">Add to my List</button>
+      <input type="text" name="items" value="" placeholder="Todo">
+      <button type="Submit" name="create" value="item">Add to my List</button>
     </form>
 
   </body>

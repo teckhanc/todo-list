@@ -20,43 +20,53 @@ var options = {
 
 var day = today.toLocaleDateString("en-AU", options);
 
+var timeToday = new Date();
+
+var options2 = {
+  day: "numeric",
+  month: "numeric",
+  year: "2-digit",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric"
+}
+
+var timeDay = timeToday.toLocaleDateString("en-AU", options2);
+
+
+
 app.get("/", function(req, res) {
-  res.render("index", {todoName: todoName, listTitle: day});
+  console.log(req.body);
+  res.render("index", {todoName: todoName, listTitle: day, timeStamp: timeDay});
 })
 
 app.post("/", function(req, res) {
-
   var listName = req.body.items;
-
-  if (req.body.list === "Work") {
-    items.push(listName);
-    res.redirect("/work");
-  }
-  else {
-    todoName.push(listName);
-    res.redirect("/");
-  }
-
+  todoName.push(listName);
+  res.redirect("/");
 })
 
-app.get("/random.txt", function(req, res) {
 
 
-  // for (i = 0; i < todoName.length; i++) {
-  //   document.querySelectorAll("li").addEventListener("click", function() {
-  //     var aClicked = this.innerText
-  //     console.log(aClicked);
-  //   })
-  // }
-
-  res.render("index", {listTitle: "Work", todoName: items});
+app.get("/list", function(req, res) {
+  res.render("list", {todoName: todoName, items: items, timeStamp: timeDay});
 })
 //
-// app.post("/work", function(req, res) {
-//   var newTodo = req.body.newTodo;
-//   items.push(newTodo)
-//   res.redirect("/work");
-// })
+app.post("/list", function(req, res) {
+
+  if (req.body.create === "list") {
+    var todoListName = req.body.todoName;
+    todoName.push(todoListName);
+    res.redirect("/list");
+  } else if (req.body.create === "item") {
+    var todoListItem = req.body.items;
+    items.push(todoListItem);
+    res.redirect("/list");
+  } else {
+    console.log(error);
+  }
+})
+
 
 app.listen(3000, function() {
   console.log("server started and listening on port 3000");

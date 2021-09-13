@@ -2,18 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Name Your Todo List</title>
+    <title>Create Your Todo List</title>
   </head>
   <body>
-    <h1><%=listTitle%></h1>
+    <h1>Create your todo list - <%=listTitle%></h1>
     <ul>
       <% for (var i = 0; i < todoName.length; i++) { %>
-          <li><a href="/<%=todoName[i]%>"><%=todoName[i]%></a>  </li>
+          <li><form class="" action="/<%=todoName[i]%>" method="get">
+            <button type="Submit" name="listName" value="/<%=timeStamp%>" formmethod="get"><%=todoName[i]%></button>
+          </form></li>
       <% } %>
     </ul>
-    <form class="" action="/" method="post">
-      <input type="text" name="items" value="" placeholder="Name your todo List">
-      <button type="Submit" name="list" value="<%=listTitle%>">Create my Todo List</button>
+    <form class="" action="/list" method="get">
+      <button type="Submit" name="list" value="<%=listTitle%>" formmethod="get">Create New Todo List</button>
     </form>
   </body>
 </html>

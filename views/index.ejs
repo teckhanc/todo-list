@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Create Your Todo List</title>
-  </head>
+<%- include("header") -%>
   <body>
     <h1>Create your todo list - <%=listTitle%></h1>
     <ul>
@@ -16,5 +11,4 @@
     <form class="" action="/list" method="get">
       <button type="Submit" name="list" value="<%=listTitle%>" formmethod="get">Create New Todo List</button>
     </form>
-  </body>
-</html>
+<%- include("footer") -%>

@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Todo List</title>
-  </head>
-  <body>
+<%- include("header") -%>
     <h1> <%= todoName %> </h1>
     <h1><form class="" action="/list" method="post">
       <input type="text" name="todoName" value="" placeholder="Title">
@@ -20,5 +14,4 @@
       <button type="Submit" name="create" value="item">Add to my List</button>
     </form>
 
-  </body>
-</html>
+<%- include("footer") -%>

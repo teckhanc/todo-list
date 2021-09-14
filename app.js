@@ -22,14 +22,11 @@ app.post("/", function(req, res) {
   res.redirect("/");
 })
 
-
-
 app.get("/list", function(req, res) {
   res.render("list", {todoName: todoName, items: items, timeStamp: timeDay});
 })
 //
 app.post("/list", function(req, res) {
-
   if (req.body.create === "list") {
     var todoListName = req.body.todoName;
     todoName.push(todoListName);

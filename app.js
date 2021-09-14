@@ -1,47 +1,23 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
-var items = [];
-var todoName = [];
-
-var today = new Date();
-
-var options = {
-  weekday: "long",
-  day: "numeric",
-  month: "short",
-  year: "2-digit"
-}
-
-var day = today.toLocaleDateString("en-AU", options);
-
-var timeToday = new Date();
-
-var options2 = {
-  day: "numeric",
-  month: "numeric",
-  year: "2-digit",
-  hour: "numeric",
-  minute: "numeric",
-  second: "numeric"
-}
-
-var timeDay = timeToday.toLocaleDateString("en-AU", options2);
-
-
+const todoName = [];
+const items = [];
 
 app.get("/", function(req, res) {
-  console.log(req.body);
+  let day = date.getDate();
+  let timeday = date.getTimeDate();
   res.render("index", {todoName: todoName, listTitle: day, timeStamp: timeDay});
 })
 
 app.post("/", function(req, res) {
-  var listName = req.body.items;
+  let listName = req.body.items;
   todoName.push(listName);
   res.redirect("/");
 })

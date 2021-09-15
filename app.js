@@ -60,6 +60,7 @@ app.post("/create", function(req, res) {
 
 app.get("/list/:id", function(req, res) {
   let x = _.lowerCase(req.params.id);
+  console.log(x);
   lists.forEach(function(list) {
     let y = _.lowerCase(list.title);
     if (y === x) {
@@ -71,14 +72,25 @@ app.get("/list/:id", function(req, res) {
 })
 
 app.post("/list/:id", function(req, res) {
-  console.log(req.params.id);
-  const list = {
-    title: req.params.id,
-    content: req.body.items
-  }
-  lists.push(list);
-  console.log(list);
-  res.redirect("/list/:id")
+  let x = _.lowerCase(req.params.id);
+  // console.log(req.params.id);
+  let z = req.body.items
+  lists.forEach(function(list) {
+    let y = _.lowerCase(list.title);
+    if (y === x) {
+      list.content.push(z);
+      res.redirect("/list/"+ x);
+    } else {
+      console.log("error");
+    }
+  })
+  // const list = {
+  //   title: req.params.id,
+  //   content: [req.body.items]
+  // }
+  // lists.push(list);
+  // console.log(list);
+  // res.redirect("/list/:id")
 })
 
 

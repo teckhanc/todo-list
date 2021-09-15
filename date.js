@@ -8,7 +8,7 @@ exports.getDate = function() {
     month: "short",
     year: "2-digit"
   }
-  return = today.toLocaleDateString("en-AU", options);
+  return today.toLocaleDateString("en-AU", options);
 }
 
 exports.getTimeDate = function() {
@@ -22,5 +22,5 @@ exports.getTimeDate = function() {
     minute: "numeric",
     second: "numeric"
   }
-  return = timeToday.toLocaleDateString("en-AU", options2);
+  return timeToday.toLocaleDateString("en-AU", options2);
 }

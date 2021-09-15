@@ -40,6 +40,10 @@ app.post("/list", function(req, res) {
   }
 })
 
+app.get("/list/:id", function(req, res) {
+  let x = req.params.id
+})
+
 
 app.listen(3000, function() {
   console.log("server started and listening on port 3000");

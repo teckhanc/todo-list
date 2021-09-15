@@ -1,5 +1,4 @@
-<%- include("header") -%>
-  <body>
+<%- include("partials/header") -%>
     <h1>Create your todo list - <%=listTitle%></h1>
     <ul>
       <% for (var i = 0; i < todoName.length; i++) { %>
@@ -11,4 +10,4 @@
     <form class="" action="/list" method="get">
       <button type="Submit" name="list" value="<%=listTitle%>" formmethod="get">Create New Todo List</button>
     </form>
-<%- include("footer") -%>
+<%- include("partials/footer") -%>

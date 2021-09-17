@@ -1,11 +1,26 @@
 <%- include("partials/header") -%>
+  <div class="">
     <h1>My Todo List</h1>
-    <ul>
+  </div>
+  <div class="row">
+    <ul class="main-list">
+      <div class="col-lg-2 list-size">
+        <form class="" action="/create" method="get">
+          <button class="btn" type="Submit" name="list" value="<%=listTitle%>" formmethod="get"><i class="fas fa-file fa-6x"></i><br><br>New</button>
+        </form>
+      </div>
+
       <% for (var i = 0; i < todoName.length; i++) { %>
-          <li><a href="/list/<%= todoName[i] %>"><%= todoName[i] %></a></li>
+          <div class="col-lg-2 list-size">
+            <li class ="list-name"><a href="/list/<%= todoName[i] %>"><%= todoName[i] %></a></li>
+            <p class="items-in-list">0</p>
+            <i class="far fa-trash-alt"></i>
+          </div>
       <% } %>
     </ul>
-    <form class="" action="/create" method="get">
-      <button type="Submit" name="list" value="<%=listTitle%>" formmethod="get">Create New Todo List</button>
-    </form>
+  </div>
+
+
+
+
 <%- include("partials/footer") -%>

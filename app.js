@@ -12,7 +12,6 @@ app.use(express.static("public"));
 
 const todoName = [];
 const items = [];
-
 const lists = [];
 
 app.get("/", function(req, res) {

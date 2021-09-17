@@ -1,3 +1,80 @@
+/* navbar */
+.navbar {
+	background-color: #4A4A4A;
+	border-color: #4A4A4A;
+	border-radius: 0;
+	color: white;
+}
+
+nav {
+	color: white;
+}
+
+/* body */
+body {
+	background: #FFFFFF;
+}
+
+h1 {
+	margin-bottom: 20px;
+}
+
+.btn {
+	position: absolute;
+	opacity: 100%;
+	background-color: transparent;
+	width: 120px;
+	height: 140px;
+}
+
+.fa-file {
+	color: grey;
+}
+
+.new {
+
+}
+
+.list-size {
+	position: relative;
+	background-color: #F5F5F5;
+	width: 140px;
+	height: 160px;
+	padding: 1rem;
+	margin: 3% 3% 3% 0%;
+	box-shadow: 5px black;
+}
+
+ul.main-list {
+	list-style-type: none;
+
+}
+
+.list-name {
+		font-size: 18px;
+}
+
+.items-in-list {
+	position: absolute;
+	color: red;
+	bottom: 0;
+}
+
+.fa-trash-alt {
+	position: absolute;
+	right: 0;
+	bottom: 5px;
+	margin: 1rem;
+	color: blue;
+}
+
+
+
+
+
+
+
+/* footer */
 .footer-padding {
 	padding-bottom: 60px;
 }

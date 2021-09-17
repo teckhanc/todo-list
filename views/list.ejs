@@ -1,10 +1,10 @@
 <%- include("partials/header") -%>
-<div class="">
+<div class="box">
   <h1> <%= todoName %> </h1>
 </div>
-<div class="">
+<div class="box">
     <% for (var i = 0; i < items.length; i++) { %>
-      <div class="">
+      <div class="item">
         <input type="checkbox">
         <p> <%=items[i]%> </p>
       </div>

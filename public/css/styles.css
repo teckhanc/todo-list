@@ -61,7 +61,36 @@ ul.main-list {
 }
 
 /* list.ejs */
+.box {
+	margin: auto;
+	position: relative;
+	background-color: #F5F5F5;
+	width: 500px;
+}
 
+.item {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #4A4A4A;
+}
+
+.item input {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 30px;
+	margin: 1rem;
+}
+
+.item p {
+	display: inline-block;
+	font-size: 30px;
+	margin: 1rem;
+}
+
+input:checked+p {
+	text-decoration: line-through;
+	text-decoration-color: red;
+}
 
 /* footer */
 .footer-padding {

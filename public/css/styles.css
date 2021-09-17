@@ -1,12 +1,8 @@
-/* navbar */
+/* header */
 .navbar {
 	background-color: #4A4A4A;
 	border-color: #4A4A4A;
 	border-radius: 0;
-	color: white;
-}
-
-nav {
 	color: white;
 }
 
@@ -29,10 +25,6 @@ h1 {
 
 .fa-file {
 	color: grey;
-}
-
-.new {
-
 }
 
 .list-size {
@@ -68,10 +60,7 @@ ul.main-list {
 	color: blue;
 }
 
-
-
-
-
+/* list.ejs */
 
 
 /* footer */

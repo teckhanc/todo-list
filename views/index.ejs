@@ -9,7 +9,6 @@
           <button class="btn" type="Submit" name="list" value="<%=listTitle%>" formmethod="get"><i class="fas fa-file fa-6x"></i><br><br>New</button>
         </form>
       </div>
-
       <% for (var i = 0; i < todoName.length; i++) { %>
           <div class="col-lg-2 list-size">
             <li class ="list-name"><a href="/list/<%= todoName[i] %>"><%= todoName[i] %></a></li>
@@ -19,8 +18,4 @@
       <% } %>
     </ul>
   </div>
-
-
-
-
 <%- include("partials/footer") -%>

@@ -17,7 +17,7 @@ const lists = [];
 app.get("/", function(req, res) {
   let day = date.getDate();
   let timeDay = date.getTimeDate();
-  res.render("index", {todoName: todoName, listTitle: day, timeStamp: timeDay});
+  res.render("index", {todoName: todoName, lists: lists, timeStamp: timeDay});
 })
 
 app.post("/", function(req, res) {
@@ -34,6 +34,7 @@ app.post("/create", function(req, res) {
   var todoListName = req.body.todoName;
   todoName.push(todoListName);
   const list = {
+    listId: Date.now(),
     title: req.body.todoName,
     content: []
   }
@@ -44,9 +45,9 @@ app.post("/create", function(req, res) {
 app.get("/list/:id", function(req, res) {
   let x = _.lowerCase(req.params.id);
   lists.forEach(function(list) {
-    let y = _.lowerCase(list.title);
+    let y = _.lowerCase(list.listId);
     if (y === x) {
-      res.render("list", {todoName: list.title, items: list.content})
+      res.render("list", {todoName: list.title, items: list.content, listId: list.listId})
     } else {
       console.log("link not found");
     }
@@ -57,10 +58,10 @@ app.post("/list/:id", function(req, res) {
   let x = _.lowerCase(req.params.id);
   let z = req.body.items
   lists.forEach(function(list) {
-    let y = _.lowerCase(list.title);
+    let y = _.lowerCase(list.listId);
     if (y === x) {
       list.content.push(z);
-      res.redirect("/list/"+ x);
+      res.redirect("/list/" + x);
     } else {
       console.log("error");
     }

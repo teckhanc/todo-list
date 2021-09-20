@@ -1,11 +1,13 @@
 <%- include("partials/header") -%>
 
+<div class="box">
+  <h1> New Todo List </h1>
+  <h1><form class="" action="/create" method="post">
+    <input type="text" name="todoName" value="Untitiled" placeholder="Title">
+    <button type="Submit" name="create" value="list">Create</button>
+  </form></h1>
+</div>
 
-<h1> New Todo List </h1>
-<h1><form class="" action="/create" method="post">
-  <input type="text" name="todoName" value="" placeholder="Title">
-  <button type="Submit" name="create" value="list">Create</button>
-</form></h1>
 
 
 <%- include("partials/footer") -%>

@@ -17,14 +17,14 @@ const lists = [];
 app.get("/", function(req, res) {
   let day = date.getDate();
   let timeDay = date.getTimeDate();
-  res.render("index", {todoName: todoName, lists: lists, timeStamp: timeDay});
+  res.render("index", {lists: lists});
 })
 
-app.post("/", function(req, res) {
-  let listName = req.body.items;
-  todoName.push(listName);
-  res.redirect("/");
-})
+// app.post("/", function(req, res) {
+//   let listName = req.body.items;
+//   todoName.push(listName);
+//   res.redirect("/");
+// })
 
 app.get("/create", function(req, res) {
   res.render("create")
@@ -36,7 +36,8 @@ app.post("/create", function(req, res) {
   const list = {
     listId: Date.now(),
     title: req.body.todoName,
-    content: []
+    content: [],
+    done: []
   }
   lists.push(list);
   res.redirect("/");

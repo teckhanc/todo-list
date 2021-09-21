@@ -13,12 +13,9 @@
         <div class="col-lg-2 list-size">
           <li class="list-name"><a href="/list/<%=list.listId %>"> <%= list.title %> </a></li>
           <p class="items-in-list"><%=list.content.length%></p>
-          <div class="bin">
-            <form class="" action="index.html" method="post">
-              <button type="button" name="button"><i class="far fa-trash-alt"></i></button>
-            </form>
-          </div>
-
+          <form class="" action="/delete" method="post">
+            <button class="bin" type="Submit" name="listId" value="<%=list.listId %>"><i class="far fa-trash-alt"></i></button>
+          </form>
         </div>
       <% }); %>
     </ul>

@@ -13,6 +13,7 @@ body {
 
 h1 {
 	margin-bottom: 20px;
+	font-size: 45px;
 }
 
 .btn {
@@ -53,9 +54,11 @@ ul.main-list {
 }
 
 .bin {
+	background-color: transparent;
+	border: none;
 	position: absolute;
 	right: 0;
-	bottom: 5px;
+	bottom: 0;
 	margin: 1rem;
 	color: blue;
 }
@@ -83,7 +86,7 @@ ul.main-list {
 
 .item p {
 	display: inline-block;
-	font-size: 30px;
+	font-size: 20px;
 	margin: 1rem;
 }
 

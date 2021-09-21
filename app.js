@@ -69,6 +69,27 @@ app.post("/list/:id", function(req, res) {
   })
 })
 
+app.post("/delete", function(req, res) {
+  let x = _.toNumber(req.body.listId);
+  // method 1 using for loop
+  // for (i = 0; i < lists.length; i++) {
+  //   let y = _.toNumber(lists[i].listId);
+  //   if (y === x) {
+  //     lists.splice(i,1);
+  //   }
+  // }
+  // method 2 using forEach function
+  lists.forEach(function(list, index) {
+    let y = _.toNumber(list.listId);
+    if (y === x) {
+      lists.splice(index, 1);
+    }
+  })
+  console.log(lists);
+  res.redirect("/");
+})
+
+
 app.listen(3000, function() {
   console.log("server started and listening on port 3000");
 })

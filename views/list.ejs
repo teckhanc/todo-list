@@ -1,17 +1,15 @@
 <%- include("partials/header") -%>
 <div class="box">
   <h1> <%= todoName %> </h1>
-</div>
-<div class="box">
-    <% for (var i = 0; i < items.length; i++) { %>
-      <div class="item">
-        <input type="checkbox">
-        <p> <%=items[i]%> </p>
-      </div>
-    <% } %>
-    <form class="" action="/list/<%=listId%>" method="post">
-      <input type="text" name="items" value="" placeholder="Todo">
-      <button type="Submit" name="create" value="item">Add to my List</button>
-    </form>
+  <% for (var i = 0; i < items.length; i++) { %>
+    <div class="item">
+      <input type="checkbox">
+      <p> <%=items[i]%> </p>
+    </div>
+  <% } %>
+  <form class="" action="/list/<%=listId%>" method="post">
+    <input type="text" name="items" value="" placeholder="Todo">
+    <button type="Submit" name="create" value="item">Add to my List</button>
+  </form>
 </div>
 <%- include("partials/footer") -%>

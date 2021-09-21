@@ -16,10 +16,11 @@ h1 {
 	font-size: 45px;
 }
 
-.btn {
+.btn-icon {
 	position: absolute;
 	opacity: 100%;
 	background-color: transparent;
+	border: none;
 	width: 120px;
 	height: 140px;
 }
@@ -63,12 +64,21 @@ ul.main-list {
 	color: blue;
 }
 
+.text-input {
+	width: 70%;
+}
+
+.btn {
+	width: 20%;
+}
+
 /* list.ejs */
 .box {
 	margin: auto;
 	position: relative;
 	background-color: #F5F5F5;
-	width: 500px;
+	width: 700px;
+	padding: 5%;
 }
 
 .item {

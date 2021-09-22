@@ -36,7 +36,7 @@ h1 {
 .create {
 	position: relative;
 	width: 480px;
-	background-color: lightblue;
+	background-color: #1abc9c;
 	height: 160px;
 	padding: 1rem;
 	margin: 30px 30px 30px 0;
@@ -50,11 +50,6 @@ h1 {
 	padding: 1rem;
 	margin: 30px 30px 30px 0;
 	box-shadow: 5px black;
-}
-
-ul.main-list {
-	list-style-type: none;
-
 }
 
 .list-name {
@@ -126,7 +121,7 @@ input:checked+p {
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #1abc9c;
+	background-color: grey;
 }
 
 .footer p {

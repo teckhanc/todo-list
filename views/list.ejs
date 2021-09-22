@@ -7,9 +7,14 @@
       <p> <%=items[i]%> </p>
     </div>
   <% } %>
-  <form action="/list/<%=listId%>" method="post">
-    <input class="text-input form-control" type="text" name="items" placeholder="Todo">
-    <button class="btn btn-primary" type="Submit">Add</button>
-  </form>
+  <div class="input-group mb-3">
+    <form action="/list/<%=listId%>" method="post">
+      <input class="text-input form-control" type="text" name="items" placeholder="Todo">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="Submit">Add</button>
+      </div>
+    </form>
+  </div>
+
 </div>
 <%- include("partials/footer") -%>

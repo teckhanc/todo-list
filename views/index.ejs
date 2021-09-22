@@ -5,11 +5,15 @@
   <div class="row">
     <ul class="main-list">
       <div class="col-lg-2 col-md-4 create">
-        <h3> New Todo List </h3>
-        <form action="/create" method="post">
-          <input class="text-input form-control" type="text" name="todoName" value="Untitiled" placeholder="Title">
-          <button class="btn btn-primary" type="Submit">Create</button>
-        </form>
+        <div class="input-group mb-3">
+          <h3> New Todo List </h3>
+          <form action="/create" method="post">
+            <input class="text-input form-control" type="text" name="todoName" value="Untitiled" placeholder="Title">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="Submit">Create</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <% lists.forEach(function(list) { %>

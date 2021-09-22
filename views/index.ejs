@@ -1,16 +1,19 @@
 <%- include("partials/header") -%>
-  <div class="">
-    <h1>My Todo List</h1>
-  </div>
+<div class="container-fluid">
+  <h1>My Todo List</h1>
+
   <div class="row">
     <ul class="main-list">
-      <div class="col-lg-2 list-size">
-        <form class="" action="/create" method="get">
-          <button class="btn-icon" type="Submit" formmethod="get"><i class="fas fa-file fa-6x"></i><br><br>New</button>
+      <div class="col-lg-2 col-md-4 create">
+        <h3> New Todo List </h3>
+        <form action="/create" method="post">
+          <input class="text-input form-control" type="text" name="todoName" value="Untitiled" placeholder="Title">
+          <button class="btn btn-primary" type="Submit">Create</button>
         </form>
       </div>
+
       <% lists.forEach(function(list) { %>
-        <div class="col-lg-2 list-size">
+        <div class="col-lg-2 col-md-4 list-size">
           <li class="list-name"><a href="/list/<%=list.listId %>"> <%= list.title %> </a></li>
           <p class="items-in-list"><%=list.content.length%></p>
           <form class="" action="/delete" method="post">
@@ -20,4 +23,5 @@
       <% }); %>
     </ul>
   </div>
+</div>
 <%- include("partials/footer") -%>

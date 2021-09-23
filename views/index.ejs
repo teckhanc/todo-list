@@ -2,20 +2,22 @@
 <h1>My Todo List</h1>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6 col-md-4 col-sm-12 create">
-      <div class="input-group mb-3">
-        <h3> New Todo List </h3>
-        <form action="/create" method="post">
-          <input class="text-input form-control" type="text" name="todoName" value="Untitiled" placeholder="Title">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="Submit">Create</button>
+    <div class="col-lg-6 col-md-4 col-sm-2 create">
+      <h3>Create New Todo List</h3>
+      <form action="/create" method="post">
+        <div class="row form-row">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 create-input">
+            <input class="form-control" type="text" name="todoName" value="Untitiled" placeholder="Title">
           </div>
-        </form>
-      </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 create-button">
+            <button class="btn btn-primary form-button" type="Submit">Create</button>
+          </div>
+        </div>
+      </form>
     </div>
 
     <% lists.forEach(function(list) { %>
-      <div class="col-lg-2 col-md-3 col-sm-4 list-size">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 list-size">
         <p class="list-name"><a href="/list/<%=list.listId %>"> <%= list.title %> </a></p>
         <p class="items-in-list"><%=list.content.length%></p>
         <form class="" action="/delete" method="post">

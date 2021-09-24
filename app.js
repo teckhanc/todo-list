@@ -26,10 +26,6 @@ app.get("/", function(req, res) {
 //   res.redirect("/");
 // })
 
-app.get("/create", function(req, res) {
-  res.render("create")
-})
-
 app.post("/create", function(req, res) {
   var todoListName = req.body.todoName;
   todoName.push(todoListName);
@@ -62,7 +58,7 @@ app.post("/list/:id", function(req, res) {
     let y = _.lowerCase(list.listId);
     if (y === x) {
       list.content.push(z);
-      res.redirect("/list/" + x);
+      res.redirect("/list/" + y);
     } else {
       console.log("error");
     }
@@ -87,6 +83,31 @@ app.post("/delete", function(req, res) {
   })
   console.log(lists);
   res.redirect("/");
+})
+
+app.get("/edit/:id", function(req, res) {
+  let x = _.lowerCase(req.params.id);
+  lists.forEach(function(list) {
+    let y = _.lowerCase(list.listId);
+    if (y === x) {
+      res.render("edit", {listId: list.listId})
+    }
+  })
+})
+
+app.post("/edit/:id", function(req,res) {
+  let x = _.lowerCase(req.params.id);
+  let z = req.body.rename
+  lists.forEach(function(list) {
+    let y = _.lowerCase(list.listId);
+    if (y === x) {
+      list.title = z;
+      console.log(z);
+      console.log(x);
+      console.log(list);
+      res.redirect("/list/" + y);
+    }
+  })
 })
 
 

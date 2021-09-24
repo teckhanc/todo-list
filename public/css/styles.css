@@ -108,6 +108,17 @@ input:checked+p {
 	text-decoration-color: red;
 }
 
+.edit-icon {
+	position: relative;
+	margin-left: 10px;
+	padding: 5px;
+	display: none;
+}
+
+.box h1:hover .edit-icon {
+	display: inline-block;
+}
+
 /* footer */
 .footer-padding {
 	padding-bottom: 60px;

@@ -1,0 +1,22 @@
+<%- include("partials/header") -%>
+
+
+<div class="box">
+  <h1><u>New Title</u></h1>
+  <form class="" action="/edit/<%=listId%>" method="post">
+    <div class="row form-row">
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 create-input">
+        <input class="form-control" type="text" name="rename" placeholder="New Title" required>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 create-button">
+        <button class="btn btn-primary" type="Submit">Confirm</button>
+      </div>
+    </div>
+  </form>
+
+
+
+</div>
+
+
+<%- include("partials/footer") -%>

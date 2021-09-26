@@ -5,6 +5,10 @@
 	border-radius: 0;
 }
 
+.navbar-brand {
+	color: white !important;
+}
+
 /* body */
 body {
 	background: #FFFFFF;

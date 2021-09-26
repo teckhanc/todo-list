@@ -1,13 +1,6 @@
 <%- include("partials/header") -%>
 <div class="box">
   <h1><u><%= todoName %></u><a href="/edit/<%=listId%>"><i class="edit-icon fas fa-edit fa-xs"></i></a></h1>
-  <% for (var i = 0; i < items.length; i++) { %>
-    <div class="item">
-      <input type="checkbox">
-      <p> <%=items[i]%> </p>
-    </div>
-  <% } %>
-
   <form action="/list/<%=listId%>" method="post">
     <div class="row form-row">
       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 create-input">
@@ -18,5 +11,21 @@
       </div>
     </div>
   </form>
+
+  <h3>Added Task</h3>
+  <form class="" action="/done" method="post">
+    <% for (var i = 0; i < items.length; i++) { %>
+      <div class="item">
+        <input type="checkbox" name="checkIndex" value="<%= i %>">
+        <p> <%=items[i]%> </p>
+      </div>
+    <% } %>
+
+    <button class="btn btn-primary" type="submit"> Done </button>
+  </form>
+
+
+
+  <h3>Completed Task</h3>
 </div>
 <%- include("partials/footer") -%>

@@ -95,7 +95,7 @@ app.get("/edit/:id", function(req, res) {
   })
 })
 
-app.post("/edit/:id", function(req,res) {
+app.post("/edit/:id", function(req, res) {
   let x = _.lowerCase(req.params.id);
   let z = req.body.rename
   lists.forEach(function(list) {
@@ -108,6 +108,15 @@ app.post("/edit/:id", function(req,res) {
       res.redirect("/list/" + y);
     }
   })
+})
+
+app.post("/done", function(req, res) {
+  let x = req.body.checkIndex
+  let i = 0;
+  console.log(x);
+  while (i < x.length) {
+    
+  }
 })
 
 

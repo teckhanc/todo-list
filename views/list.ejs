@@ -13,10 +13,10 @@
   </form>
 
   <h3>Added Task</h3>
-  <form class="" action="/done" method="post">
+  <form class="" action="/done/<%=listId%>" method="post">
     <% for (var i = 0; i < items.length; i++) { %>
       <div class="item">
-        <input type="checkbox" name="checkIndex" value="<%= i %>">
+        <input type="checkbox" name="checkItems" value="<%= items[i] %>">
         <p> <%=items[i]%> </p>
       </div>
     <% } %>

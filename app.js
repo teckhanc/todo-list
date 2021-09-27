@@ -44,7 +44,7 @@ app.get("/list/:id", function(req, res) {
   lists.forEach(function(list) {
     let y = _.lowerCase(list.listId);
     if (y === x) {
-      res.render("list", {todoName: list.title, items: list.content, listId: list.listId})
+      res.render("list", {todoName: list.title, items: list.content, listId: list.listId, listDone: list.done})
     } else {
       console.log("link not found");
     }
@@ -86,9 +86,9 @@ app.post("/delete", function(req, res) {
 })
 
 app.get("/edit/:id", function(req, res) {
-  let x = _.lowerCase(req.params.id);
+  let x = _.toNumber(req.params.id);
   lists.forEach(function(list) {
-    let y = _.lowerCase(list.listId);
+    let y = _.toNumber(list.listId);
     if (y === x) {
       res.render("edit", {listId: list.listId})
     }
@@ -96,10 +96,10 @@ app.get("/edit/:id", function(req, res) {
 })
 
 app.post("/edit/:id", function(req, res) {
-  let x = _.lowerCase(req.params.id);
+  let x = _.toNumber(req.params.id);
   let z = req.body.rename
   lists.forEach(function(list) {
-    let y = _.lowerCase(list.listId);
+    let y = _.toNumber(list.listId);
     if (y === x) {
       list.title = z;
       console.log(z);
@@ -110,13 +110,52 @@ app.post("/edit/:id", function(req, res) {
   })
 })
 
-app.post("/done", function(req, res) {
-  let x = req.body.checkIndex
-  let i = 0;
-  console.log(x);
-  while (i < x.length) {
-    
+app.post("/done/:id", function(req, res) {
+  let x = _.toNumber(req.params.id);
+  let z = req.body.checkItems;
+  if (typeof z === "string") {
+    lists.forEach(function(list) {
+      let y = _.toNumber(list.listId)
+      if (y === x) {
+        list.done.push(z);
+        list.content.splice(list.content.indexOf(z), 1);
+        res.redirect("/list/" + y);
+      }
+    })
+  } else if (typeof z === "object") {
+    lists.forEach(function(list) {
+      let y = _.toNumber(list.listId)
+      if (y === x) {
+        z.forEach(function(eachZ) {
+          let v = eachZ
+          list.done.push(eachZ)
+          list.content.forEach(function(content, index) {
+            let w = content
+            if (w === v) {
+              list.content.splice(index, 1);
+              console.log(list.done);
+              res.redirect("/list/" + y)
+            }
+          })
+        })
+      }
+    })
+  } else {
+    console.log(error);
   }
+  // lists.forEach(function(list, index, object) {
+  //   let y = _.toNumber(list.listId)
+  //   if (y === x) {
+  //     list.done.push(z)
+      // list.content.forEach(function(content, index) {
+      //   let w = content
+      //   if (w === v) {
+      //     list.content.splice(index, 1);
+  //       }
+  //     })
+  //   }
+  // })
+
 })
 
 

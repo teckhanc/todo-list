@@ -27,5 +27,10 @@
 
 
   <h3>Completed Task</h3>
+  <% for (i = 0; i < listDone.length; i++) { %>
+    <div class="item">
+      <p><%=listDone[i]%></p>
+    </div>
+  <% } %>
 </div>
 <%- include("partials/footer") -%>

@@ -119,22 +119,20 @@ app.post("/done/:id", function(req, res) {
       if (y === x) {
         list.done.push(z);
         list.content.splice(list.content.indexOf(z), 1);
-        res.redirect("/list/" + y);
       }
     })
   } else if (typeof z === "object") {
     lists.forEach(function(list) {
-      let y = _.toNumber(list.listId)
+      let y = _.toNumber(list.listId);
       if (y === x) {
         z.forEach(function(eachZ) {
           let v = eachZ
-          list.done.push(eachZ)
+          list.done.push(eachZ);
           list.content.forEach(function(content, index) {
             let w = content
             if (w === v) {
               list.content.splice(index, 1);
               console.log(list.done);
-              res.redirect("/list/" + y)
             }
           })
         })
@@ -143,19 +141,7 @@ app.post("/done/:id", function(req, res) {
   } else {
     console.log(error);
   }
-  // lists.forEach(function(list, index, object) {
-  //   let y = _.toNumber(list.listId)
-  //   if (y === x) {
-  //     list.done.push(z)
-      // list.content.forEach(function(content, index) {
-      //   let w = content
-      //   if (w === v) {
-      //     list.content.splice(index, 1);
-  //       }
-  //     })
-  //   }
-  // })
-
+  res.redirect("/list/" + x);
 })
 
 

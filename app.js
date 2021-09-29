@@ -40,9 +40,9 @@ app.post("/create", function(req, res) {
 })
 
 app.get("/list/:id", function(req, res) {
-  let x = _.lowerCase(req.params.id);
+  let x = _.toNumber(req.params.id);
   lists.forEach(function(list) {
-    let y = _.lowerCase(list.listId);
+    let y = _.toNumber(list.listId);
     if (y === x) {
       res.render("list", {todoName: list.title, items: list.content, listId: list.listId, listDone: list.done})
     } else {
@@ -52,10 +52,10 @@ app.get("/list/:id", function(req, res) {
 })
 
 app.post("/list/:id", function(req, res) {
-  let x = _.lowerCase(req.params.id);
+  let x = _.toNumber(req.params.id);
   let z = req.body.items
   lists.forEach(function(list) {
-    let y = _.lowerCase(list.listId);
+    let y = _.toNumber(list.listId);
     if (y === x) {
       list.content.push(z);
       res.redirect("/list/" + y);
@@ -65,8 +65,8 @@ app.post("/list/:id", function(req, res) {
   })
 })
 
-app.post("/delete", function(req, res) {
-  let x = _.toNumber(req.body.listId);
+app.post("/delete/list/:id", function(req, res) {
+  let x = _.toNumber(req.params.id);
   // method 1 using for loop
   // for (i = 0; i < lists.length; i++) {
   //   let y = _.toNumber(lists[i].listId);
@@ -83,6 +83,24 @@ app.post("/delete", function(req, res) {
   })
   console.log(lists);
   res.redirect("/");
+})
+
+app.post("/delete/item/:id", function(req, res) {
+  let x = _.toNumber(req.params.id);
+  let z = _.toString(req.body.listDone);
+  console.log(z);
+  lists.forEach(function(list) {
+    let y = _.toNumber(list.listId);
+    if (y === x) {
+      list.done.forEach(function(done, index) {
+        let v = _.toString(done);
+        if (z === v) {
+          list.done.splice(index, 1);
+        }
+      })
+    }
+  })
+  res.redirect("/list/" + x)
 })
 
 app.get("/edit/:id", function(req, res) {
@@ -113,6 +131,7 @@ app.post("/edit/:id", function(req, res) {
 app.post("/done/:id", function(req, res) {
   let x = _.toNumber(req.params.id);
   let z = req.body.checkItems;
+  console.log(z);
   if (typeof z === "string") {
     lists.forEach(function(list) {
       let y = _.toNumber(list.listId)

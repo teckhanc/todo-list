@@ -95,21 +95,10 @@ h1 {
 	border-bottom: 1px solid #4A4A4A;
 }
 
-.item input {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 1rem;
-}
-
 .item p {
 	display: inline-block;
 	font-size: 20px;
 	margin: 1rem;
-}
-
-input:checked+p {
-	text-decoration: line-through;
-	text-decoration-color: red;
 }
 
 .edit-icon {
@@ -121,6 +110,16 @@ input:checked+p {
 
 .box h1:hover .edit-icon {
 	display: inline-block;
+}
+
+.done-button {
+	padding-left: 0;
+	margin: 10px 0 10px;
+}
+
+.item-complete p {
+	text-decoration: line-through;
+	text-decoration-color: red;
 }
 
 /* footer */

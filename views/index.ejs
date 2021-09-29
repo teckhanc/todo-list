@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6 col-md-4 col-sm-2 create">
-      <h3>Create New Todo List</h3>
+      <h3>New Todo List</h3>
       <form action="/create" method="post">
         <div class="row form-row">
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 create-input">
@@ -20,7 +20,7 @@
       <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 list-size">
         <p class="list-name"><a href="/list/<%=list.listId %>"> <%= list.title %> </a></p>
         <p class="items-in-list"><%=list.content.length%></p>
-        <form class="" action="/delete" method="post">
+        <form class="" action="/delete/list/<%=list.listId %>" method="post">
           <button class="bin" type="Submit" name="listId" value="<%=list.listId %>"><i class="far fa-trash-alt"></i></button>
         </form>
       </div>

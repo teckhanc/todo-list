@@ -85,17 +85,18 @@ app.post("/delete/list/:id", function(req, res) {
   res.redirect("/");
 })
 
+// bug
 app.post("/delete/item/:id", function(req, res) {
   let x = _.toNumber(req.params.id);
   let z = _.toString(req.body.listDone);
-  console.log(z);
   lists.forEach(function(list) {
     let y = _.toNumber(list.listId);
     if (y === x) {
       list.done.forEach(function(done, index) {
         let v = _.toString(done);
-        if (z === v) {
+        if (v === z) {
           list.done.splice(index, 1);
+          console.log(index + z);
         }
       })
     }
@@ -131,7 +132,6 @@ app.post("/edit/:id", function(req, res) {
 app.post("/done/:id", function(req, res) {
   let x = _.toNumber(req.params.id);
   let z = req.body.checkItems;
-  console.log(z);
   if (typeof z === "string") {
     lists.forEach(function(list) {
       let y = _.toNumber(list.listId)

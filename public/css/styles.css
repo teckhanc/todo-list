@@ -122,6 +122,20 @@ h1 {
 	text-decoration-color: red;
 }
 
+.done {
+	display: inline-block;
+	border: none;
+	background: transparent;
+}
+
+.done-icon {
+	color: Grey;
+}
+
+.done-icon:hover {
+	color: blue;
+}
+
 /* footer */
 .footer-padding {
 	padding-bottom: 60px;

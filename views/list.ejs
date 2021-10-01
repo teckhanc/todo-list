@@ -16,7 +16,7 @@
     <form class="" action="/done/<%=listId%>" method="post">
       <% for (var i = 0; i < items.length; i++) { %>
         <div class="item">
-          <button class="" type="submit" name="checkItems" value="<%=items[i] %>"> <i class="fas fa-check"></i> </button>
+          <button class="done" type="submit" name="checkItems" value="<%=items[i] %>"> <i class="done-icon fas fa-check"></i> </button>
           <p> <%=items[i]%> </p>
         </div>
       <% } %>
@@ -27,7 +27,7 @@
       <div class="item item-complete">
         <p><%=listDone[i]%></p>
         <form class="" action="/delete/item/<%=listId %>" method="post">
-          <button class="" type="Submit" name="listDone" value="<%=listDone[i]%>"><i class="far fa-trash-alt"></i></button>
+          <button class="done" type="Submit" name="listDone" value="<%=listDone[i]%>"><i class="far fa-trash-alt"></i></button>
         </form>
       </div>
     <% } %>
